@@ -54,3 +54,11 @@ get '/active_friends' do
     "{code:'fail'}"
   end
 end
+
+get '/update_post' do
+  if verify_all_exist([:auth_token], params)
+    end_time = params[:time] || 'Thu Feb 02 2012 04:15:59 GMT-0500 (EST)'
+    friends = params[:friends_going].split(',').length || 1
+    loc = params[:loc] || "Not set"
+    {:end_time => end_time, :friends_added => friends, :loc => loc}
+end
