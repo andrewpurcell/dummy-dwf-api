@@ -61,4 +61,5 @@ get '/update_post' do
     friends = params[:friends_going].split(',').length || 1
     loc = params[:loc] || "Not set"
     {:end_time => end_time, :friends_added => friends, :loc => loc}
+  end
 end
